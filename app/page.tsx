@@ -11,7 +11,7 @@ export default function Home() {
       </Typography>
       <SearchBar />
       <Box display="flex" flexWrap="wrap" justifyContent="center">
-        <ActionButton bgColor="#303134">Experience</ActionButton>
+        <ActionButton bgColor="#303134" href="/experience">Experience</ActionButton>
         <ActionButton bgColor="#303134">Projects</ActionButton>
         <ActionButton bgColor="#303134">About me</ActionButton>
         <ActionButton bgColor="#303134">I'm Feeling Lucky</ActionButton>
