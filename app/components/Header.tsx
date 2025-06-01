@@ -1,8 +1,6 @@
 'use client';
 
 import { Box, Typography, Tabs, Tab, IconButton, InputBase } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import SearchIcon from '@mui/icons-material/Search';
 import { SearchBar } from './SearchBar';
 import { useState } from 'react';
 
@@ -27,17 +25,30 @@ export default function Header() {
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
-          sx={{ ml: '220px' }}
+          sx={{ ml: '220px',
+            '& .MuiTabs-indicator': {
+              backgroundColor: 'white',
+            }
+          }}
         >
           {tabLabels.map((label) => (
             <Tab
               key={label}
               label={label}
+              color='gray'
               sx={{
                 width: 'auto',
                 minWidth: 0,
                 px: 0,
-                mr: 3
+                mr: 3,
+               '&:hover': {
+                  color: 'white',
+                  fontWeight: '900'
+                },
+                '&.Mui-selected': {
+                  color: 'white',
+                  fontWeight: '900'
+                }
               }}
             />
           ))}

@@ -18,8 +18,6 @@ export default function Home() {
   return (
     <div>
       <Header />
-
-      {/* Main Content */}
       <Box display="flex" flexDirection={{ xs: "column", md: "row" }} mt={6} gap={4} className="xl:px-55 px-10">
         {/* Left Side */}
         <Box flex={3}>
@@ -31,9 +29,9 @@ export default function Home() {
             </Typography>
           </Box>
 
-          {/* <Grid container spacing={2}>
+          <Grid container spacing={2}>
             {projects.map((src, index) => (
-              <Grid item xs={6} md={4} key={index}>
+              <Grid key={index} component="div">
                 <Card sx={{ bgcolor: "#222" }}>
                   <Image
                     src={src}
@@ -45,7 +43,7 @@ export default function Home() {
                 </Card>
               </Grid>
             ))}
-          </Grid> */}
+          </Grid>
 
           <Box mt={6}>
             <Typography variant="body2" color="gray">● Aayushi</Typography>
@@ -57,7 +55,7 @@ export default function Home() {
         </Box>
 
         {/* Profile Card */}
-        <Box flex={1}>
+        <Box flex={2}>
           <Card sx={{ bgcolor: "#111", p: 2 }}>
             <Box
               height={100}
