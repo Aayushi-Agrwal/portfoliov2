@@ -56,7 +56,7 @@ export default function Home() {
 
         {/* Profile Card */}
         <Box flex={2}>
-          <Card sx={{ bgcolor: "#111", p: 2 }}>
+          <Card className="!bg-[#1F1F1F] border-[0.5px] border-solid border-[#979DA3]" sx={{boxShadow: 'none', backgroundImage: 'none' }}>
             <Box
               height={100}
               bgcolor="#ccc"
