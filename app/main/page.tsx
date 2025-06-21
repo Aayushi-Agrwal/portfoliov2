@@ -110,24 +110,35 @@ export default function Home() {
                 ))}
               </Box>
 
-              <Box mt={2}>
-                <Typography fontWeight="bold">Location:</Typography>
-                <Typography variant="body2" color="gray">Jaipur, India</Typography>
+              <Box mt={4}>
+                <Typography variant="body2">
+                  <span style={{ fontWeight: 'bold' }}>Location:</span> Jaipur, India
+                </Typography>
 
-                <Typography fontWeight="bold" mt={1}>Phone:</Typography>
-                <Typography variant="body2" color="gray">+91 8619236367</Typography>
+                <Typography variant="body2" mt={1}>
+                  <span style={{ fontWeight: 'bold' }}>Phone:</span> +91 8619236367
+                </Typography>
 
-                <Typography fontWeight="bold" mt={1}>Gmail:</Typography>
-                <Typography variant="body2" color="gray">aayushiagarwal@gmail.com</Typography>
+                <Typography variant="body2" mt={1}>
+                  <span style={{ fontWeight: 'bold' }}>Gmail:</span> aayushiagarwal@gmail.com
+                </Typography>
               </Box>
 
-              <Box mt={2}>
+              <Box mt={4}>
                 <Typography fontWeight="bold">Education</Typography>
-                <Typography variant="body2" color="gray">
-                  IIT Roorkee<br />
-                  Bachelor of Technology<br />
-                  2021 - 2025
-                </Typography>
+                <Box display="flex" alignItems="center" gap={2} mt={1}>
+                  <Image 
+                    src="/education-icon.jpg" 
+                    alt="Education" 
+                    width={60} 
+                    height={60} 
+                  />
+                  <Typography variant="body2">
+                    <span className="font-bold">IIT Roorkee<br /></span>
+                    Bachelor of Technology<br />
+                    <span className="text-[#4285F4]">2021 - 2025</span>
+                  </Typography>
+                </Box>
               </Box>
 
               <Box mt={2}>
