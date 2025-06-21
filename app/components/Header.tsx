@@ -14,18 +14,49 @@ export default function Header() {
 
   return (
     <Box sx={{ bgcolor: '#1F1F1F' }}>
-      <div className="flex items-center gap-8 px-10">
+      {/* Mobile Layout */}
+      <Box sx={{ 
+        display: { xs: 'flex', md: 'none' }, 
+        flexDirection: 'column', 
+        alignItems: 'center',
+        py: 2
+      }}>
         <Typography variant="h5" fontWeight="bold" color="white">
-            Aayooogle
+          Aayooogle
+        </Typography>
+        <Box sx={{ width: '100%', px: 2 }}>
+          <SearchBar mainPage={true}/>
+        </Box>
+      </Box>
+
+      {/* Desktop Layout */}
+      <Box sx={{ 
+        display: { xs: 'none', md: 'flex' }, 
+        alignItems: 'center', 
+        gap: '42px', 
+        px: { xs: 5, lg: '40px' }
+      }}>
+        <Typography variant="h5" fontWeight="bold" color="white">
+          Aayooogle
         </Typography>
         <SearchBar mainPage={true}/>
-      </div>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      </Box>
+
+      <Box sx={{ 
+        borderBottom: 1, 
+        borderColor: 'divider',
+        px: { xs: 2, md: 0 }
+      }}>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
-          sx={{ ml: '220px',
+          sx={{ 
+            ml: { xs: 0, md: '40px', xl: '220px' },
+            width: { xs: '100%', md: 'auto' },
+            '& .MuiTabs-flexContainer': {
+              justifyContent: { xs: 'space-around', md: 'flex-start' },
+            },
             '& .MuiTabs-indicator': {
               backgroundColor: 'white',
             }
@@ -36,11 +67,12 @@ export default function Header() {
               key={label}
               label={label}
               color='gray'
+              
               sx={{
                 width: 'auto',
                 minWidth: 0,
                 px: 0,
-                mr: 3,
+                mr: { xs: 0, md: 3 },
                '&:hover': {
                   color: 'white',
                   fontWeight: '900'

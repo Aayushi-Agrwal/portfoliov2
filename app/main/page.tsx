@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <Box display="flex" flexDirection={{ xs: "column", md: "row" }} mt={6} gap={4} className="xl:px-55 px-10">
+      <Box display="flex" flexDirection={{ xs: "column", md: "row" }} mt={6} gap={4} sx={{px: {xs: '40px', xl: '220px'} }}>
         {/* Profile Card - Mobile First */}
         <Box flex={3} order={{ xs: 1, md: 2 }}>
           <Card className="!bg-[#1F1F1F] border-[0.5px] border-solid border-[#979DA3]" sx={{boxShadow: 'none', backgroundImage: 'none' }}>
