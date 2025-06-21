@@ -14,13 +14,28 @@ const projects = [
   "/project6.png",
 ];
 
+const profiles = [
+  {
+    name: "LinkedIn",
+    icon: <LinkedIn />
+  },
+  {
+    name: "Github",
+    icon: <GitHub />
+  },
+  {
+    name: "Gmail",
+    icon: <Email />
+  }
+]
+
 export default function Home() {
   return (
     <div>
       <Header />
       <Box display="flex" flexDirection={{ xs: "column", md: "row" }} mt={6} gap={4} className="xl:px-55 px-10">
         {/* Left Side */}
-        <Box flex={3}>
+        <Box flex={5}>
           <Box mb={4}>
             <Typography variant="body2" color="gray">● Aayushi</Typography>
             <Typography variant="h6" fontWeight="bold" color="#90caf9">Projects</Typography>
@@ -55,7 +70,7 @@ export default function Home() {
         </Box>
 
         {/* Profile Card */}
-        <Box flex={2}>
+        <Box flex={3}>
           <Card className="!bg-[#1F1F1F] border-[0.5px] border-solid border-[#979DA3]" sx={{boxShadow: 'none', backgroundImage: 'none' }}>
             <Box
               height={100}
@@ -66,15 +81,33 @@ export default function Home() {
 
             <CardContent>
               <Typography variant="h6" fontWeight="bold">Aayushi Agarwal</Typography>
-              <Typography variant="body2" color="gray">
-                I&apos;m a frontend developer passionate about building intuitive, responsive, and accessible web experiences.
-                I specialize in React, TypeScript, and modern UI design.
+              <Typography variant="body2" color="white" className="pt-2">
+                I&apos;m a frontend developer passionate about building intuitive, responsive, and accessible web experiences. I specialize in React, TypeScript, and modern UI design — turning ideas into smooth, user-first interfaces.
               </Typography>
 
-              <Box mt={2} display="flex" gap={1}>
-                <IconButton><LinkedIn sx={{ color: "white" }} /></IconButton>
-                <IconButton><GitHub sx={{ color: "white" }} /></IconButton>
-                <IconButton><Email sx={{ color: "white" }} /></IconButton>
+              <Box mt={2} display="flex" gap={3}>
+                {profiles.map((profile, index) => (
+                  <Box 
+                    key={index}
+                    className="flex justify-center items-center border border-solid border-[#979DA3] px-4 py-1 rounded-4xl cursor-pointer transition-all duration-300 group"
+                    sx={{
+                      '&:hover .text-content': {
+                        opacity: 0,
+                      },
+                      '&:hover .icon-content': {
+                        opacity: 1,
+                      }
+                    }}
+                  >
+                    <span className="text-content transition-opacity duration-100">{profile.name}</span>
+                    <Box 
+                      className="icon-content absolute opacity-0 transition-opacity duration-300" 
+                      sx={{ color: "white" }}
+                    >
+                      {profile.icon}
+                    </Box>
+                  </Box>
+                ))}
               </Box>
 
               <Box mt={2}>
