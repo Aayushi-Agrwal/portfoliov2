@@ -57,43 +57,8 @@ export default function Home() {
     <div>
       <Header />
       <Box display="flex" flexDirection={{ xs: "column", md: "row" }} mt={6} gap={4} className="xl:px-55 px-10">
-        {/* Left Side */}
-        <Box flex={5}>
-          <Box mb={4}>
-            <Typography variant="body2" color="gray">● Aayushi</Typography>
-            <Typography variant="h6" fontWeight="bold" color="#90caf9">Projects</Typography>
-            <Typography variant="body2" color="gray">
-              Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…
-            </Typography>
-          </Box>
-
-          <Grid container spacing={2}>
-            {projects.map((src, index) => (
-              <Grid key={index} component="div">
-                <Card sx={{ bgcolor: "#222" }}>
-                  <Image
-                    src={src}
-                    alt={`project-${index}`}
-                    width={300}
-                    height={200}
-                    style={{ width: "100%", borderRadius: 8 }}
-                  />
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-
-          <Box mt={6}>
-            <Typography variant="body2" color="gray">● Aayushi</Typography>
-            <Typography variant="h6" fontWeight="bold" color="#90caf9">Experience</Typography>
-            <Typography variant="body2" color="gray">
-              Look more into my experience and what I have built so far. Adding sample texts here…
-            </Typography>
-          </Box>
-        </Box>
-
-        {/* Profile Card */}
-        <Box flex={3}>
+        {/* Profile Card - Mobile First */}
+        <Box flex={3} order={{ xs: 1, md: 2 }}>
           <Card className="!bg-[#1F1F1F] border-[0.5px] border-solid border-[#979DA3]" sx={{boxShadow: 'none', backgroundImage: 'none' }}>
             <Box
               height={200}
@@ -218,6 +183,41 @@ export default function Home() {
               </Button>
             </CardContent>
           </Card>
+        </Box>
+
+        {/* Left Side - Projects & Experience */}
+        <Box flex={5} order={{ xs: 2, md: 1 }}>
+          <Box mb={4}>
+            <Typography variant="body2" color="gray">● Aayushi</Typography>
+            <Typography variant="h6" fontWeight="bold" color="#90caf9">Projects</Typography>
+            <Typography variant="body2" color="gray">
+              Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…
+            </Typography>
+          </Box>
+
+          <Grid container spacing={2}>
+            {projects.map((src, index) => (
+              <Grid key={index} component="div">
+                <Card sx={{ bgcolor: "#222" }}>
+                  <Image
+                    src={src}
+                    alt={`project-${index}`}
+                    width={300}
+                    height={200}
+                    style={{ width: "100%", borderRadius: 8 }}
+                  />
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+
+          <Box mt={6}>
+            <Typography variant="body2" color="gray">● Aayushi</Typography>
+            <Typography variant="h6" fontWeight="bold" color="#90caf9">Experience</Typography>
+            <Typography variant="body2" color="gray">
+              Look more into my experience and what I have built so far. Adding sample texts here…
+            </Typography>
+          </Box>
         </Box>
       </Box>
       <Snackbar
