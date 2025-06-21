@@ -1,9 +1,12 @@
-import { Box, Container, Typography, Tabs, Tab, Card, CardContent, Avatar, IconButton, Button } from "@mui/material";
-import { LinkedIn, GitHub, Email, CloudDownload } from "@mui/icons-material";
+'use client'
+
+import { Box, Container, Typography, Tabs, Tab, Card, CardContent, Avatar, IconButton, Button, Snackbar, Alert } from "@mui/material";
+import { LinkedIn, GitHub, Email, CloudDownload, ContentCopy } from "@mui/icons-material";
 import Image from "next/image";
 import Grid from '@mui/material/Grid';
 import { SearchBar } from "../components/SearchBar";
 import Header from "../components/Header";
+import { useState } from "react";
 
 const projects = [
   "/project1.png",
@@ -29,7 +32,27 @@ const profiles = [
   }
 ]
 
+const skills = [
+  { name: "React.js", src: "/react.png" },
+  { name: "Next.js", src: "/next.png" },
+  { name: "TypeScript", src: "/typescript.png" },
+  { name: "Tailwind CSS", src: "/tailwind.png" },
+  { name: "Node.js", src: "/node.png" },
+  { name: "Express.js", src: "/express.png" },
+  { name: "MongoDB", src: "/mongodb.png" },
+  { name: "GitHub", src: "/github.png" },
+]
+
 export default function Home() {
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState('');
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setSnackbarMsg('Copied!');
+    setSnackbarOpen(true);
+  };
+
   return (
     <div>
       <Header />
@@ -73,10 +96,18 @@ export default function Home() {
         <Box flex={3}>
           <Card className="!bg-[#1F1F1F] border-[0.5px] border-solid border-[#979DA3]" sx={{boxShadow: 'none', backgroundImage: 'none' }}>
             <Box
-              height={100}
-              bgcolor="#ccc"
+              height={200}
               borderRadius={2}
               mb={2}
+              sx={{
+                backgroundImage: `
+                  radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.6) 100%),
+                  url(/portfolio-photo.jpeg)
+                `,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
             ></Box>
 
             <CardContent>
@@ -115,12 +146,32 @@ export default function Home() {
                   <span style={{ fontWeight: 'bold' }}>Location:</span> Jaipur, India
                 </Typography>
 
-                <Typography variant="body2" mt={1}>
+                <Typography variant="body2" mt={1} 
+                  sx={{ 
+                    cursor: 'pointer', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: 1,
+                    '&:hover': { opacity: 0.8 }
+                  }}
+                  onClick={() => handleCopy('+91 8619236367')}
+                >
                   <span style={{ fontWeight: 'bold' }}>Phone:</span> +91 8619236367
+                  <ContentCopy sx={{ fontSize: '14px', opacity: 0.7, color: 'gray' }} />
                 </Typography>
 
-                <Typography variant="body2" mt={1}>
-                  <span style={{ fontWeight: 'bold' }}>Gmail:</span> aayushiagarwal@gmail.com
+                <Typography variant="body2" mt={1}
+                  sx={{ 
+                    cursor: 'pointer', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: 1,
+                    '&:hover': { opacity: 0.8 }
+                  }}
+                  onClick={() => handleCopy('aayushiagrwall@gmail.com')}
+                >
+                  <span style={{ fontWeight: 'bold' }}>Gmail:</span> aayushiagrwall@gmail.com
+                  <ContentCopy sx={{ fontSize: '14px', opacity: 0.7, color: 'gray' }} />
                 </Typography>
               </Box>
 
@@ -141,13 +192,19 @@ export default function Home() {
                 </Box>
               </Box>
 
-              <Box mt={2}>
+              <Box mt={4}>
                 <Typography fontWeight="bold">Skills</Typography>
                 <Box display="flex" gap={2} mt={1}>
-                  <Image src="/ts-icon.svg" alt="TS" width={24} height={24} />
-                  <Image src="/next-icon.svg" alt="Next" width={24} height={24} />
-                  <Image src="/react-icon.svg" alt="React" width={24} height={24} />
-                  <Image src="/css-icon.svg" alt="CSS" width={24} height={24} />
+                  {skills.map((skill, index) => (
+                    <Image 
+                      key={index}
+                      src={skill.src} 
+                      alt={skill.name} 
+                      width={24} 
+                      height={24} 
+                      style={{ objectFit: 'contain' }}
+                    />
+                  ))}
                 </Box>
               </Box>
 
@@ -155,7 +212,7 @@ export default function Home() {
                 variant="outlined"
                 startIcon={<CloudDownload />}
                 fullWidth
-                sx={{ mt: 2, color: "white", borderColor: "white" }}
+                sx={{ mt: 4, color: "white", borderColor: "white" }}
               >
                 Download Resume
               </Button>
@@ -163,6 +220,16 @@ export default function Home() {
           </Card>
         </Box>
       </Box>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={1500}
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert severity="success" sx={{ minWidth: '100px', p: 1, fontSize: 14 }}>
+          {snackbarMsg}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
