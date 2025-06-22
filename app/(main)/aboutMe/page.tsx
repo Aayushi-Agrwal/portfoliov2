@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Experience = () => {
+const AboutMe = () => {
   return (
-    <div>Experience</div>
+    <div>About me</div>
   )
 }
 
-export default Experience
+export default AboutMe

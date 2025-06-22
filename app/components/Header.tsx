@@ -1,19 +1,21 @@
 'use client';
 
-import { Box, Typography, Tabs, Tab, IconButton, InputBase } from '@mui/material';
+import { Box, Typography, Tabs, Tab } from '@mui/material';
 import { SearchBar } from './SearchBar';
-import { useState } from 'react';
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const tabLabels = ["All", "Projects", "Experience", "About me"];
 const tabRoutes = ["/all", "/projects", "/experience", "/aboutMe"];
 
 export default function Header() {
-  const [value, setValue] = useState(0);
   const router = useRouter();
+  const pathname = usePathname();
+
+  // Find the index of the current route
+  const currentTab = tabRoutes.findIndex(route => pathname.startsWith(route));
+  const value = currentTab === -1 ? 0 : currentTab;
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
     router.push(tabRoutes[newValue]);
   };
 
@@ -72,7 +74,6 @@ export default function Header() {
               key={label}
               label={label}
               color='gray'
-              
               sx={{
                 width: 'auto',
                 minWidth: 0,

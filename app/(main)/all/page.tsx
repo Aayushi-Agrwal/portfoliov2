@@ -216,7 +216,7 @@ export default function Home() {
 
         {/* Left Side - Projects & Experience */}
         <Box flex={5} order={{ xs: 2, md: 1 }}>
-          <MainPageLink title='Projects' description="Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…"/>
+          <MainPageLink title='Projects' description="Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…" route='/projects'/>
 
           <Typography variant="h6" fontWeight="bold" my={2}>Projects</Typography>
           <Grid container spacing={2} mb={4}>
@@ -273,8 +273,8 @@ export default function Home() {
             </Box>
           )}
 
-          <MainPageLink title='Experience' description="Look more into my experience. Have fun looking into it. Adding sample texts here…"/>
-          <MainPageLink title='About me' description="Know more about me. Have fun looking into it. Adding sample texts here…"/>
+          <MainPageLink title='Experience' description="Look more into my experience. Have fun looking into it. Adding sample texts here…" route='/experience'/>
+          <MainPageLink title='About me' description="Know more about me. Have fun looking into it. Adding sample texts here…" route='/aboutMe'/>
         </Box>
       </Box>
       <Snackbar
