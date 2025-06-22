@@ -10,12 +10,20 @@ import { useState } from "react";
 import MainPageLink from "./components";
 
 const projects = [
-  "/project1.png",
-  "/project2.png",
-  "/project3.png",
-  "/project4.png",
-  "/project5.png",
-  "/project6.png",
+  "/projects/medi-sync.png",
+  "/projects/MindTasker.png",
+  "/projects/OccasionOwl.png",
+  "/projects/neurastats.png",
+  "/projects/callo.png",
+  "/projects/blog.png",
+  "/projects/expense-tracker.png",
+  "/projects/githubexplorer.png",
+  "/projects/huddleUp.png",
+  "/projects/notes.png",
+  "/projects/portfolio-screenshot.png",
+  "/projects/profSS.png",
+  "/projects/todo.png",
+  "/projects/weather.png",
 ];
 
 const profiles = [
@@ -190,16 +198,15 @@ export default function Home() {
         <Box flex={5} order={{ xs: 2, md: 1 }}>
           <MainPageLink title='Projects' description="Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…"/>
 
+          <Typography variant="h6" fontWeight="bold" my={2}>Projects</Typography>
           <Grid container spacing={2} mb={4}>
             {projects.map((src, index) => (
               <Grid key={index} component="div">
-                <Card sx={{ bgcolor: "#222" }}>
-                  <Image
+                <Card sx={{ bgcolor: "#222" , borderRadius: '16px' }}>
+                  <img
                     src={src}
                     alt={`project-${index}`}
-                    width={300}
-                    height={200}
-                    style={{ width: "100%", borderRadius: 8 }}
+                    className=" h-[150px] w-[200px] object-contain rounded-2xl"
                   />
                 </Card>
               </Grid>
