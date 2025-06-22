@@ -1,29 +1,28 @@
 'use client'
 
-import { Box, Container, Typography, Tabs, Tab, Card, CardContent, Avatar, IconButton, Button, Snackbar, Alert } from "@mui/material";
-import { LinkedIn, GitHub, Email, CloudDownload, ContentCopy } from "@mui/icons-material";
+import { Box, Typography, Card, CardContent, Button, Snackbar, Alert } from "@mui/material";
+import { LinkedIn, GitHub, Email, CloudDownload, ContentCopy, ArrowForwardIos } from "@mui/icons-material";
 import Image from "next/image";
 import Grid from '@mui/material/Grid';
-import { SearchBar } from "../components/SearchBar";
 import Header from "../components/Header";
 import { useState } from "react";
 import MainPageLink from "./components";
 
 const projects = [
   "/projects/medi-sync.png",
-  "/projects/MindTasker.png",
-  "/projects/OccasionOwl.png",
+  "/projects/portfolio-screenshot.png",
+  "/projects/expense-tracker.png",
+  "/projects/profSS.png",
   "/projects/neurastats.png",
   "/projects/callo.png",
-  "/projects/blog.png",
-  "/projects/expense-tracker.png",
   "/projects/githubexplorer.png",
+  "/projects/blog.png",
+  "/projects/weather.png",
+  "/projects/todo.png",
   "/projects/huddleUp.png",
   "/projects/notes.png",
-  "/projects/portfolio-screenshot.png",
-  "/projects/profSS.png",
-  "/projects/todo.png",
-  "/projects/weather.png",
+  "/projects/MindTasker.png",
+  "/projects/OccasionOwl.png",
 ];
 
 const profiles = [
@@ -55,6 +54,8 @@ const skills = [
 export default function Home() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMsg, setSnackbarMsg] = useState('');
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const projectsToShow = showAllProjects ? projects : projects.slice(0, 3);
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -200,9 +201,9 @@ export default function Home() {
 
           <Typography variant="h6" fontWeight="bold" my={2}>Projects</Typography>
           <Grid container spacing={2} mb={4}>
-            {projects.map((src, index) => (
+            {projectsToShow.map((src, index) => (
               <Grid key={index} component="div">
-                <Card sx={{ bgcolor: "#222" , borderRadius: '16px' }}>
+                <Card sx={{ bgcolor: "#222" , borderRadius: '16px', cursor: 'pointer' }}>
                   <img
                     src={src}
                     alt={`project-${index}`}
@@ -212,6 +213,46 @@ export default function Home() {
               </Grid>
             ))}
           </Grid>
+
+          {!showAllProjects && (
+            <Box position="relative" display="flex" justifyContent="center" alignItems="center" my={4} height={40}>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  left: 0,
+                  right: 0,
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  height: '0.5px',
+                  bgcolor: '#979DA3',
+                  zIndex: 1,
+                }}
+              />
+              <Button
+                color="primary"
+                sx={{
+                  borderRadius: '999px',
+                  px: 4,
+                  fontWeight: 500,
+                  background: '#28292A',
+                  color: 'white',
+                  borderColor: '#3C4043',
+                  textTransform: 'none',
+                  zIndex: 2,
+                  height: '40px',
+                  width: '300px',
+                  '&:hover': {
+                    background: '#3C4043',
+                    borderColor: '#3C4043',
+                    color: 'white',
+                  },
+                }}
+                onClick={() => setShowAllProjects(true)}
+              >
+                More projects <ArrowForwardIos sx={{ fontSize: 12, ml: 2, color: '#9E9E9E' }} />
+              </Button>
+            </Box>
+          )}
 
           <MainPageLink title='Experience' description="Look more into my experience. Have fun looking into it. Adding sample texts here…"/>
           <MainPageLink title='About me' description="Know more about me. Have fun looking into it. Adding sample texts here…"/>
