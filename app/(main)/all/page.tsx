@@ -89,7 +89,12 @@ export default function Home() {
                 I&apos;m a frontend developer passionate about building intuitive, responsive, and accessible web experiences. I specialize in React, TypeScript, and modern UI design — turning ideas into smooth, user-first interfaces.
               </Typography>
 
-              <Box mt={2} display="flex" gap={3}>
+              <Box mt={2} display="flex" gap={{ xs: 2, md: 3 }} sx={{
+                overflowX: { xs: 'auto', md: 'visible' },
+                whiteSpace: { xs: 'nowrap', md: 'normal' },
+                scrollbarWidth: 'none',
+                '&::-webkit-scrollbar': { display: 'none' },
+              }}>
                 {profiles.map((profile, index) => (
                   <Box 
                     key={index}
@@ -167,7 +172,12 @@ export default function Home() {
 
               <Box mt={4}>
                 <Typography fontWeight="bold">Skills</Typography>
-                <Box display="flex" gap={2} mt={1}>
+                <Box display="flex" gap={2} mt={1} sx={{
+                overflowX: { xs: 'auto', md: 'visible' },
+                whiteSpace: { xs: 'nowrap', md: 'normal' },
+                scrollbarWidth: 'none',
+                '&::-webkit-scrollbar': { display: 'none' },
+              }}>
                   {skills.map((skill, index) => (
                     <Image 
                       key={index}
@@ -180,14 +190,7 @@ export default function Home() {
                   ))}
                 </Box>
               </Box>
-
-              {/* <Button
-                variant="outlined"
-                startIcon={<Download />}
-                fullWidth
-                sx={{ mt: 6, color: "white", borderColor: "white" }}
-              > */}
-                <Button
+              <Button
                 color="primary"
                 startIcon={<Download />}
                 fullWidth
@@ -226,7 +229,7 @@ export default function Home() {
                   <img
                     src={src}
                     alt={`project-${index}`}
-                    className=" h-[150px] w-[200px] object-contain rounded-2xl"
+                    className="h-[100px] w-[120px] sm:h-[150px] sm:w-[200px] object-contain rounded-2xl"
                   />
                 </Card>
               </Grid>
