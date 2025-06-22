@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import { SearchBar } from "../components/SearchBar";
 import Header from "../components/Header";
 import { useState } from "react";
+import MainPageLink from "./components";
 
 const projects = [
   "/project1.png",
@@ -187,15 +188,9 @@ export default function Home() {
 
         {/* Left Side - Projects & Experience */}
         <Box flex={5} order={{ xs: 2, md: 1 }}>
-          <Box mb={4}>
-            <Typography variant="body2" color="gray">● Aayushi</Typography>
-            <Typography variant="h6" fontWeight="bold" color="#90caf9">Projects</Typography>
-            <Typography variant="body2" color="gray">
-              Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…
-            </Typography>
-          </Box>
+          <MainPageLink title='Projects' description="Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…"/>
 
-          <Grid container spacing={2}>
+          <Grid container spacing={2} mb={4}>
             {projects.map((src, index) => (
               <Grid key={index} component="div">
                 <Card sx={{ bgcolor: "#222" }}>
@@ -211,13 +206,8 @@ export default function Home() {
             ))}
           </Grid>
 
-          <Box mt={6}>
-            <Typography variant="body2" color="gray">● Aayushi</Typography>
-            <Typography variant="h6" fontWeight="bold" color="#90caf9">Experience</Typography>
-            <Typography variant="body2" color="gray">
-              Look more into my experience and what I have built so far. Adding sample texts here…
-            </Typography>
-          </Box>
+          <MainPageLink title='Experience' description="Look more into my experience. Have fun looking into it. Adding sample texts here…"/>
+          <MainPageLink title='About me' description="Know more about me. Have fun looking into it. Adding sample texts here…"/>
         </Box>
       </Box>
       <Snackbar
