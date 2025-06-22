@@ -1,7 +1,7 @@
 'use client'
 
 import { Box, Typography, Card, CardContent, Button, Snackbar, Alert } from "@mui/material";
-import { LinkedIn, GitHub, Email, CloudDownload, ContentCopy, ArrowForwardIos } from "@mui/icons-material";
+import { LinkedIn, GitHub, Email, Download, ContentCopy, ArrowForwardIos } from "@mui/icons-material";
 import Image from "next/image";
 import Grid from '@mui/material/Grid';
 import Header from "../components/Header";
@@ -183,11 +183,32 @@ export default function Home() {
                 </Box>
               </Box>
 
-              <Button
+              {/* <Button
                 variant="outlined"
-                startIcon={<CloudDownload />}
+                startIcon={<Download />}
                 fullWidth
-                sx={{ mt: 4, color: "white", borderColor: "white" }}
+                sx={{ mt: 6, color: "white", borderColor: "white" }}
+              > */}
+                <Button
+                color="primary"
+                startIcon={<Download />}
+                fullWidth
+                sx={{
+                  mt: 6,
+                  borderRadius: '8px',
+                  px: 4,
+                  fontWeight: 500,
+                  background: '#28292A',
+                  color: 'white',
+                  borderColor: '#3C4043',
+                  textTransform: 'none',
+                  zIndex: 2,
+                  '&:hover': {
+                    background: '#3C4043',
+                    borderColor: '#3C4043',
+                    color: 'white',
+                  },
+                }}
               >
                 Download Resume
               </Button>
