@@ -89,7 +89,7 @@ export default function Home() {
                 I&apos;m a frontend developer passionate about building intuitive, responsive, and accessible web experiences. I specialize in React, TypeScript, and modern UI design — turning ideas into smooth, user-first interfaces.
               </Typography>
 
-              <Box mt={2} display="flex" gap={{ xs: 2, md: 3 }} sx={{
+              <Box mt={2} display="flex" gap={{ xs: 1.5, md: 3 }} sx={{
                 overflowX: { xs: 'auto', md: 'visible' },
                 whiteSpace: { xs: 'nowrap', md: 'normal' },
                 scrollbarWidth: 'none',
