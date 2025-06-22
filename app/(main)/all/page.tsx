@@ -4,7 +4,6 @@ import { Box, Typography, Card, CardContent, Button, Snackbar, Alert } from "@mu
 import { LinkedIn, GitHub, Email, Download, ContentCopy, ArrowForwardIos } from "@mui/icons-material";
 import Image from "next/image";
 import Grid from '@mui/material/Grid';
-import Header from "../components/Header";
 import { useState } from "react";
 import MainPageLink from "./components";
 
@@ -65,7 +64,6 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
       <Box display="flex" flexDirection={{ xs: "column", md: "row" }} mt={6} gap={4} sx={{px: {xs: '40px', xl: '220px'} }}>
         {/* Profile Card - Mobile First */}
         <Box flex={3} order={{ xs: 1, md: 2 }}>

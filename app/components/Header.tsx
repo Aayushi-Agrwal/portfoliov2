@@ -3,14 +3,19 @@
 import { Box, Typography, Tabs, Tab, IconButton, InputBase } from '@mui/material';
 import { SearchBar } from './SearchBar';
 import { useState } from 'react';
+import { useRouter } from "next/navigation";
+
+const tabLabels = ["All", "Projects", "Experience", "About me"];
+const tabRoutes = ["/all", "/projects", "/experience", "/aboutMe"];
 
 export default function Header() {
   const [value, setValue] = useState(0);
+  const router = useRouter();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+    router.push(tabRoutes[newValue]);
   };
-  const tabLabels = ["All", "Projects", "Experience", "About me"];
 
   return (
     <Box sx={{ bgcolor: '#1F1F1F' }}>
