@@ -6,23 +6,7 @@ import Image from "next/image";
 import Grid from '@mui/material/Grid';
 import { useState } from "react";
 import MainPageLink from "./components";
-
-const projects = [
-  "/projects/medi-sync.png",
-  "/projects/portfolio-screenshot.png",
-  "/projects/expense-tracker.png",
-  "/projects/profSS.png",
-  "/projects/neurastats.png",
-  "/projects/callo.png",
-  "/projects/githubexplorer.png",
-  "/projects/blog.png",
-  "/projects/weather.png",
-  "/projects/todo.png",
-  "/projects/huddleUp.png",
-  "/projects/notes.png",
-  "/projects/MindTasker.png",
-  "/projects/OccasionOwl.png",
-];
+import { projects } from "@/app/components/constant";
 
 const profiles = [
   {
