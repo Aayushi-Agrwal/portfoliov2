@@ -2,17 +2,28 @@
 
 import { CacheProvider } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import theme from './lib/theme';
+import { getTheme } from './lib/theme';
 import createEmotionCache from './lib/emotionCache';
+import { ThemeModeProvider, useThemeMode } from './components/ThemeContext';
 
 const clientSideEmotionCache = createEmotionCache();
 
+function ThemeWrapper({ children }: { children: React.ReactNode }) {
+  const { mode } = useThemeMode();
+  return (
+    <ThemeProvider theme={getTheme(mode)}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  );
+}
+
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    // <CacheProvider value={clientSideEmotionCache}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+    <ThemeModeProvider>
+      <ThemeWrapper>
         {children}
-      </ThemeProvider>
+      </ThemeWrapper>
+    </ThemeModeProvider>
   );
 }

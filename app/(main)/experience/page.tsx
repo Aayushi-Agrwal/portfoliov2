@@ -4,10 +4,12 @@ import { experiences } from '@/app/components/constant';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import { MouseEventHandler, useState, useRef, useEffect } from 'react';
+import { useTheme } from '@mui/material/styles';
 
 export default function ExperiencePage() {
   const [experince, setExperience] = useState<number>(0)
   const experienceRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const theme = useTheme();
 
   useEffect(() => {
     if (experienceRefs.current[experince]) {
@@ -26,7 +28,7 @@ export default function ExperiencePage() {
       {/* Sidebar */}
       <Box
         sx={{
-          bgcolor: 'white',
+          bgcolor: theme.palette.background.paper,
           width: '35vw',
           p: 3,
           display: 'flex',
@@ -77,12 +79,12 @@ export default function ExperiencePage() {
           <polyline
             points="80,700 250,600 400,400 650,300 800,200"
             fill="none"
-            stroke="#222"
+            stroke={theme.palette.mode === 'dark' ? '#fff' : '#222'}
             strokeWidth="6"
             strokeLinejoin="round"
             filter="drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.15))"
           />
-          <circle cx="80" cy="700" r="18" fill="#1976d2" stroke="#fff" strokeWidth="4" />
+          <circle cx="80" cy="700" r="18" fill={theme.palette.primary.main} stroke="#fff" strokeWidth="4" />
           {/* Neurastats Web Dev */}
           <circle cx="250" cy="600" r="18" fill="#43a047" stroke="#fff" strokeWidth="4" />
           {/* IIT Roorkee */}
@@ -107,13 +109,12 @@ export default function ExperiencePage() {
           >
             <Box
               sx={{
-                bgcolor: experince === index ? 'rgb(225, 233, 246)' : 'white',
+                bgcolor: experince === index ? theme.palette.action.selected : theme.palette.background.paper,
                 borderRadius: 2,
                 boxShadow: 2,
                 p: 1.2,
-                color: 'black',
-                border: experince === index ? '1px solid #A8C7FA': 'none'
-
+                color: theme.palette.text.primary,
+                border: experince === index ? `1px solid ${theme.palette.secondary.main}` : 'none'
               }}
             >
               <Typography fontWeight="bold" fontSize={15}>
@@ -141,8 +142,19 @@ interface ExperienceCardProps {
 }
 
 function ExperienceCard({ company, role, date, description, onclick, experience, index }: ExperienceCardProps) {
+  const theme = useTheme();
   return (
-    <Box sx={{ p: 2, border: '1px solid #ddd', borderRadius: 2, color: 'black', bgcolor: experience === index ? '#e0e0e0' : 'white', cursor: 'pointer', '&:hover': { bgcolor: experience === index ? '#e0e0e0' : '#f5f5f5' } }} onClick={onclick}>
+    <Box sx={{
+      p: 2,
+      border: `1px solid ${theme.palette.divider}`,
+      borderRadius: 2,
+      color: theme.palette.text.primary,
+      bgcolor: experience === index ? theme.palette.action.selected : theme.palette.background.paper,
+      cursor: 'pointer',
+      '&:hover': {
+        bgcolor: experience === index ? theme.palette.action.selected : theme.palette.action.hover
+      }
+    }} onClick={onclick}>
       <Typography fontWeight="bold">{company}</Typography>
       <Typography variant="body2" sx={{ fontWeight: 500 }}>{role}</Typography>
       <Typography variant="body2" color="green" sx={{ mb: 1 }}>{date}</Typography>
@@ -150,4 +162,3 @@ function ExperienceCard({ company, role, date, description, onclick, experience,
     </Box>
   );
 }
-// 
