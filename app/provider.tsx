@@ -12,9 +12,9 @@ function ThemeWrapper({ children }: { children: React.ReactNode }) {
   const { mode } = useThemeMode();
   return (
     <ThemeProvider theme={getTheme(mode)}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
   );
 }
 

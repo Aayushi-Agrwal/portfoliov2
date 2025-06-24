@@ -161,8 +161,9 @@ export const experiences = [
     date: "March 2025 - Present",
     description:
       "Building responsive web apps with React, Next.js, Jotai, and TypeScript. Implemented SSR, infinite scroll, i18n, and dynamic UIs.",
-    left: 130,
-    top: 570,
+    cx: 150,
+    cy: 750,
+    midcy: 650
   },
   {
     company: "Neurastats",
@@ -172,6 +173,9 @@ export const experiences = [
       "Developed and maintained responsive, high-performance web applications using ReactJS, NextJS, and TypeScript, ensuring seamless user experiences across all devices.",
     left: 230,
     top: 470,
+    cx: 250,
+    cy: 600,
+    midcy: 550
   },
   {
     company: "IIT Roorkee",
@@ -181,6 +185,9 @@ export const experiences = [
       "Established and managed Prof. Sudhakar Subudhi’s personal website repository to serve as a comprehensive platform for showcasing professional accomplishments, research interests, and academic journey.",
     left: 380,
     top: 310,
+    cx: 400,
+    cy: 400,
+    midcy: 400
   },
   {
     company: "Freelance",
@@ -190,6 +197,9 @@ export const experiences = [
       "Developed a Cricket Player Management System in Java with role-based dashboards for admins and users. Integrated a complex algorithm for optimal team selection based on pitch conditions, showcasing proficiency in Java and SQL technologies.",
     left: 590,
     top: 230,
+    cx: 600,
+    cy: 300,
+    midcy: 330
   },
   {
     company: "Neurastats",
@@ -199,5 +209,8 @@ export const experiences = [
       "Designed intuitive layouts for the blog and crafted interactive components for the homepage. Collaborated closely with frontend developers for seamless design integration and delivered three React/Next.js applications, elevating user experience.",
     left: 720,
     top: 130,
+    cx: 750,
+    cy: 200,
+    midcy: 250
   },
 ];
