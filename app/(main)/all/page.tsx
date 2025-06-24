@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import { useState } from "react";
 import MainPageLink from "./components";
 import { projects } from "@/app/components/constant";
+import { useRouter } from "next/navigation";
 
 const profiles = [
   {
@@ -39,7 +40,8 @@ export default function Home() {
   const [snackbarMsg, setSnackbarMsg] = useState('');
   const [showAllProjects, setShowAllProjects] = useState(false);
   const projectsToShow = showAllProjects ? projects : projects.slice(0, 3);
-
+  const router = useRouter();
+  
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
     setSnackbarMsg('Copied!');
@@ -205,20 +207,22 @@ export default function Home() {
         <Box flex={5} order={{ xs: 2, md: 1 }}>
           <MainPageLink title='Projects' description="Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…" route='/projects'/>
 
-          <Typography variant="h6" fontWeight="bold" my={2}>Projects</Typography>
-          <Grid container spacing={2} mb={4}>
-            {projectsToShow.map((src, index) => (
-              <Grid key={index} component="div">
-                <Card sx={{ bgcolor: "#222" , borderRadius: '16px', cursor: 'pointer' }}>
-                  <img
-                    src={src}
-                    alt={`project-${index}`}
-                    className="h-[100px] w-[120px] sm:h-[150px] sm:w-[200px] object-contain rounded-2xl"
-                  />
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+          <div onClick={() => router.push('/projects')}>
+            <Typography variant="h6" fontWeight="bold" my={2}>Projects</Typography>
+            <Grid container spacing={2} mb={4}>
+              {projectsToShow.map((src, index) => (
+                <Grid key={index} component="div">
+                  <Card sx={{ bgcolor: "#222" , borderRadius: '16px', cursor: 'pointer' }}>
+                    <img
+                      src={src}
+                      alt={`project-${index}`}
+                      className="h-[100px] w-[120px] sm:h-[150px] sm:w-[200px] object-contain rounded-2xl"
+                    />
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </div>
 
           {!showAllProjects && (
             <Box position="relative" display="flex" justifyContent="center" alignItems="center" my={4} height={40}>

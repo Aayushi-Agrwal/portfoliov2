@@ -64,21 +64,43 @@ const Projects = () => {
                 bgcolor: '#222',
                 borderRadius: '16px',
                 overflow: 'hidden',
+                border: index === selectedIndex ? '2px solid #A8C7FA' : 'none',
+                transition: 'border 0.3s',
               }}
             >
-              <Box
-                component="img"
-                src={project.picture}
-                alt={`project-${index}`}
-                sx={{
-                  width: '100%',
-                  height: 200,
-                  objectFit: 'cover',
-                  display: 'block',
-                  borderRadius: '16px',
-                }}
-              />
+              {/* Image wrapper for overlay */}
+              <Box sx={{ position: 'relative' }}>
+                {/* Image */}
+                <Box
+                  component="img"
+                  src={project.picture}
+                  alt={`project-${index}`}
+                  sx={{
+                    width: '100%',
+                    height: 200,
+                    objectFit: 'cover',
+                    display: 'block',
+                    borderRadius: '16px 16px 0 0',
+                  }}
+                />
+
+                {/* Overlay (visible only when selected) */}
+                {index === selectedIndex && (
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      bgcolor: 'rgba(89, 107, 137, 0.35)', // bluish-gray tint
+                      borderRadius: '16px 16px 0 0',
+                    }}
+                  />
+                )}
+              </Box>
             </Card>
+
             <div className="mt-2">
               <Typography variant="body2" color="#838383">
                 {project.title}
