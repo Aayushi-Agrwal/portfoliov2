@@ -175,7 +175,7 @@ const Projects = () => {
               minWidth: '300px',
               maxWidth: '500px',
               position: 'sticky',
-              top: '180px',
+              top: {sm: '240px', md: '180px'},
               alignSelf: 'flex-start',
               bgcolor: mode === 'light' ? 'white' : '#202124',
               borderRadius: '16px',
