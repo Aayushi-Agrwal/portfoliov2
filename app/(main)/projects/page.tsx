@@ -123,6 +123,11 @@ const Projects = () => {
       {isMobile ? (
         <Dialog open={selectedIndex !== null} onClose={() => setSelectedIndex(null)} fullWidth maxWidth="sm" PaperProps={{
           sx: {
+            position: 'fixed',
+            top: '30%',
+            left: 'auto',
+            right: 'auto',
+            m: 0,
             borderRadius: '16px',
             bgcolor: mode === 'light' ? 'white' : '#202124',
             p: 2,
