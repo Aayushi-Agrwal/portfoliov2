@@ -20,13 +20,18 @@ export default function Header() {
   };
 
   return (
-    <Box sx={{ bgcolor: '#1F1F1F' }}>
+    <Box sx={{ 
+      bgcolor: '#1F1F1F',
+      position: 'sticky',
+      top: 0,
+      zIndex: 1000
+    }}>
       {/* Mobile Layout */}
       <Box sx={{ 
         display: { xs: 'flex', md: 'none' }, 
         flexDirection: 'column', 
         alignItems: 'center',
-        py: 2
+        py: 2,
       }}>
         <Typography variant="h5" fontWeight="bold" color="white">
           Aayooogle
@@ -41,7 +46,7 @@ export default function Header() {
         display: { xs: 'none', md: 'flex' }, 
         alignItems: 'center', 
         gap: '42px', 
-        px: { xs: 5, lg: '40px' }
+        px: { xs: 5, lg: '40px' },
       }}>
         <Typography variant="h5" fontWeight="bold" color="white">
           Aayooogle
