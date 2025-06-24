@@ -13,6 +13,9 @@ export const lightTheme = createTheme({
     },
     primary: { main: '#1976d2' },
     secondary: { main: '#A8C7FA' },
+    action: {
+      selected: '#e3e8fd', // light blue for selection in light mode
+    },
   },
   typography: {
     fontFamily: 'Inter, sans-serif',
@@ -32,6 +35,9 @@ export const darkTheme = createTheme({
     },
     primary: { main: '#90caf9' },
     secondary: { main: '#A8C7FA' },
+    action: {
+      selected: '#232b3b',
+    },
   },
   typography: {
     fontFamily: 'Inter, sans-serif',

@@ -2,14 +2,17 @@
 
 import { projectData } from '@/app/components/constant';
 import { truncateText } from '@/app/components/helper';
-import { Box, Card, Typography, Slide } from '@mui/material';
+import { Box, Card, Typography, Slide, useTheme } from '@mui/material';
 import React, { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useThemeMode } from '@/app/components/ThemeContext';
 
 const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const theme = useTheme();
+  const { mode } = useThemeMode();
 
   const handleClose = () => setSelectedIndex(null);
   const handlePrev = () =>
@@ -24,6 +27,7 @@ const Projects = () => {
         alignItems: 'flex-start',
         p: '40px',
         gap: 4,
+        bgcolor: mode === 'light' ? '#fff' : theme.palette.background.default,
       }}
     >
       {/* Left: Project Grid */}
@@ -105,7 +109,7 @@ const Projects = () => {
               <Typography variant="body2" color="#838383">
                 {project.title}
               </Typography>
-              <Typography variant="body2">
+              <Typography variant="body2" color={mode === 'light' ? 'black' : "#838383"}>
                 {truncateText(project.description, 50)}
               </Typography>
             </div>
@@ -122,9 +126,9 @@ const Projects = () => {
             minWidth: '300px',
             maxWidth: '500px',
             position: 'sticky',
-            top: '40px',
+            top: '180px',
             alignSelf: 'flex-start',
-            bgcolor: '#202124',
+            bgcolor: mode === 'light' ? 'white' : '#202124',
             borderRadius: '16px',
             overflow: 'hidden',
             py: 2,
@@ -147,11 +151,12 @@ const Projects = () => {
               }}
                 
               >
-                <Typography variant="body1" fontWeight="bold" color="white" mb={1} 
+                <Typography variant="body1" fontWeight="bold" mb={1} 
                 sx={{
                     cursor: 'pointer',
                     textDecoration: 'none',
                     transition: 'text-decoration 0.2s',
+                    color: mode === 'light' ? 'black' : 'white',
                     '&:hover': {
                       textDecoration: 'underline',
                     },
@@ -164,9 +169,9 @@ const Projects = () => {
                   gap: 1,
                   mb: 1,
                 }}>
-                  <ChevronLeftIcon sx={{ color: 'white', cursor: 'pointer' }} onClick={handlePrev} />
-                  <ChevronRightIcon sx={{ color: 'white', cursor: 'pointer' }} onClick={handleNext} />
-                  <CloseIcon sx={{ color: 'white', cursor: 'pointer' }} onClick={handleClose} />
+                  <ChevronLeftIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handlePrev} />
+                  <ChevronRightIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handleNext} />
+                  <CloseIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handleClose} />
                 </Box>
               </Box>
 
@@ -185,7 +190,7 @@ const Projects = () => {
                 }}
               />
 
-              <Typography variant="body2" color="white" mb={2} sx={{ 
+              <Typography variant="body2" color={mode === 'light' ? 'black' : 'white'} mb={2} sx={{ 
                 flexGrow: 1,
                 cursor: 'pointer',
                 textDecoration: 'none',
@@ -207,7 +212,7 @@ const Projects = () => {
                     sx={{
                       border: '1px solid #555',
                       borderRadius: '20px',
-                      color: '#ddd',
+                      color: mode === 'light' ? '#555' : '#ddd',
                       fontSize: '14px',
                     }}
                   >

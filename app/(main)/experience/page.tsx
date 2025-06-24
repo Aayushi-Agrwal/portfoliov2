@@ -63,7 +63,7 @@ export default function ExperiencePage() {
         }}
       >
         <Image
-          src="/experience.jpg"
+          src={theme.palette.mode === 'light' ? "/experience.jpg" : '/experience-dark.png'}
           alt="Experience Trajectory Map"
           layout="fill"
           objectFit="cover"

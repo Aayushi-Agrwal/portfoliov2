@@ -66,7 +66,7 @@ export default function Home() {
       >
         {/* Profile Card - Mobile First */}
         <Box flex={3} order={{ xs: 1, md: 2 }}>
-          <Card className="!bg-[#1F1F1F] border-[0.5px] border-solid border-[#979DA3]" sx={{boxShadow: 'none', backgroundImage: 'none' }}>
+          <Card className="border-[0.5px] border-solid border-[#979DA3]" sx={{boxShadow: 'none', backgroundImage: 'none', bgcolor: mode === 'light' ? '' : '#1F1F1F' }}>
             <Box
               height={200}
               borderRadius={2}
@@ -84,7 +84,7 @@ export default function Home() {
 
             <CardContent>
               <Typography variant="h6" fontWeight="bold">Aayushi Agarwal</Typography>
-              <Typography variant="body2" color="white" className="pt-2">
+              <Typography variant="body2" color= {mode === 'light' ? 'black' : 'white'} className="pt-2">
                 I&apos;m a frontend developer passionate about building intuitive, responsive, and accessible web experiences. I specialize in React, TypeScript, and modern UI design — turning ideas into smooth, user-first interfaces.
               </Typography>
 
@@ -110,7 +110,7 @@ export default function Home() {
                     <span className="text-content transition-opacity duration-100">{profile.name}</span>
                     <Box 
                       className="icon-content absolute opacity-0 transition-opacity duration-300" 
-                      sx={{ color: "white" }}
+                      sx={{ color: mode === 'light' ? 'black' : 'white' }}
                     >
                       {profile.icon}
                     </Box>
@@ -198,15 +198,14 @@ export default function Home() {
                   borderRadius: '8px',
                   px: 4,
                   fontWeight: 500,
-                  background: '#28292A',
-                  color: 'white',
+                  background: mode === 'light' ? '#f1f3f4' : '#28292A',
+                  color: mode === 'light' ? 'black' : 'white',
                   borderColor: '#3C4043',
                   textTransform: 'none',
                   zIndex: 2,
                   '&:hover': {
-                    background: '#3C4043',
+                    background: mode === 'light'? '#D8D7DC' : '#3C4043',
                     borderColor: '#3C4043',
-                    color: 'white',
                   },
                 }}
               >
@@ -221,11 +220,11 @@ export default function Home() {
           <MainPageLink title='Projects' description="Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…" route='/projects'/>
 
           <div onClick={() => router.push('/projects')}>
-            <Typography variant="h6" fontWeight={600} my={2} color={mode === 'light' ? 'black' : 'white'}>Projects</Typography>
+            <Typography variant="h6" fontWeight={510} my={2} color={mode === 'light' ? 'black' : 'white'}>Projects</Typography>
             <Grid container spacing={2} mb={4}>
               {projectsToShow.map((src, index) => (
                 <Grid key={index} component="div">
-                  <Card sx={{ bgcolor: "#222" , borderRadius: '16px', cursor: 'pointer' }}>
+                  <Card sx={{ bgcolor: mode === 'light' ? '#F0F0F0' : "#222" , borderRadius: '16px', cursor: 'pointer' }}>
                     <img
                       src={src}
                       alt={`project-${index}`}

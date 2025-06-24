@@ -13,7 +13,7 @@ const MainPageLink = ({title, description, route}: {title: string , description:
             <img src={mode === 'light' ? '/profile-icon-dark.png' : '/profile-icon.jpg'} alt="Aayushi" className="rounded-full object-cover h-[20px] w-[20px]"/>
             <Typography variant="body2" color={mode === 'light' ? 'black' : 'white'}>Aayushi</Typography>
         </Box>
-        <Typography variant="h6" fontWeight="bold" color={mode === 'light' ? '#070097' : '#90caf9'} mt={0.5}
+        <Typography variant="h6" fontWeight={510} color={mode === 'light' ? '#070097' : '#90caf9'} mt={0.5}
           sx={{
             textDecoration: 'none',
             transition: 'text-decoration 0.2s',
