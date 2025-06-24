@@ -8,6 +8,8 @@ import { useState } from "react";
 import MainPageLink from "./components";
 import { projects } from "@/app/components/constant";
 import { useRouter } from "next/navigation";
+import { useThemeMode } from "@/app/components/ThemeContext";
+import { useTheme } from '@mui/material/styles';
 
 const profiles = [
   {
@@ -41,6 +43,8 @@ export default function Home() {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const projectsToShow = showAllProjects ? projects : projects.slice(0, 3);
   const router = useRouter();
+  const { mode } = useThemeMode();
+  const theme = useTheme();
   
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -50,7 +54,16 @@ export default function Home() {
 
   return (
     <div>
-      <Box display="flex" flexDirection={{ xs: "column", md: "row" }} mt={6} gap={4} sx={{px: {xs: '40px', xl: '220px'} }}>
+      <Box
+        display="flex"
+        flexDirection={{ xs: "column", md: "row" }}
+        pt={6}
+        gap={4}
+        sx={{
+          px: { xs: '40px', xl: '220px' },
+          bgcolor: theme.palette.mode === 'light' ? '#fff' : theme.palette.background.default,
+        }}
+      >
         {/* Profile Card - Mobile First */}
         <Box flex={3} order={{ xs: 1, md: 2 }}>
           <Card className="!bg-[#1F1F1F] border-[0.5px] border-solid border-[#979DA3]" sx={{boxShadow: 'none', backgroundImage: 'none' }}>
@@ -208,7 +221,7 @@ export default function Home() {
           <MainPageLink title='Projects' description="Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…" route='/projects'/>
 
           <div onClick={() => router.push('/projects')}>
-            <Typography variant="h6" fontWeight="bold" my={2}>Projects</Typography>
+            <Typography variant="h6" fontWeight={600} my={2} color={mode === 'light' ? 'black' : 'white'}>Projects</Typography>
             <Grid container spacing={2} mb={4}>
               {projectsToShow.map((src, index) => (
                 <Grid key={index} component="div">
@@ -244,22 +257,21 @@ export default function Home() {
                   borderRadius: '999px',
                   px: 4,
                   fontWeight: 500,
-                  background: '#28292A',
-                  color: 'white',
+                  background: mode === 'light' ? '#f1f3f4' : '#28292A',
+                  color: mode === 'light' ? 'black' : 'white',
                   borderColor: '#3C4043',
                   textTransform: 'none',
                   zIndex: 2,
                   height: '40px',
                   width: '300px',
                   '&:hover': {
-                    background: '#3C4043',
+                    background: mode === 'light'? '#D8D7DC' : '#3C4043',
                     borderColor: '#3C4043',
-                    color: 'white',
                   },
                 }}
                 onClick={() => setShowAllProjects(true)}
               >
-                More projects <ArrowForwardIos sx={{ fontSize: 12, ml: 2, color: '#9E9E9E' }} />
+                More projects <ArrowForwardIos sx={{ fontSize: 12, ml: 2, color: mode === 'light' ? '#5E5E5E' : '#9E9E9E' }} />
               </Button>
             </Box>
           )}
