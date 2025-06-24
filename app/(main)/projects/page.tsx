@@ -2,17 +2,19 @@
 
 import { projectData } from '@/app/components/constant';
 import { truncateText } from '@/app/components/helper';
-import { Box, Card, Typography, Slide, useTheme } from '@mui/material';
+import { Box, Card, Typography, Slide, Dialog, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useThemeMode } from '@/app/components/ThemeContext';
+import { useTheme } from '@mui/material/styles';
 
 const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const theme = useTheme();
   const { mode } = useThemeMode();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleClose = () => setSelectedIndex(null);
   const handlePrev = () =>
@@ -117,113 +119,107 @@ const Projects = () => {
         ))}
       </Box>
 
-      {/* Right: Sticky Drawer */}
-      
-      <Slide direction="left" in={selectedIndex !== null} mountOnEnter unmountOnExit>
-        <Box
-          sx={{
-            width: '35%',
-            minWidth: '300px',
-            maxWidth: '500px',
-            position: 'sticky',
-            top: '180px',
-            alignSelf: 'flex-start',
-            bgcolor: mode === 'light' ? 'white' : '#202124',
+      {/* Right: Sticky Drawer or Popup */}
+      {isMobile ? (
+        <Dialog open={selectedIndex !== null} onClose={() => setSelectedIndex(null)} fullWidth maxWidth="sm" PaperProps={{
+          sx: {
             borderRadius: '16px',
-            overflow: 'hidden',
-            py: 2,
-            px: 2,
-            height: 'auto',
-            maxHeight: '80vh',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.6)',
-            display: 'flex',
-            flexDirection: 'column',
-            zIndex: 10,
-          }}>
+            bgcolor: mode === 'light' ? 'white' : '#202124',
+            p: 2,
+          }
+        }}>
           {selectedIndex !== null && (
-            <Box
-              
-            >
+            <Box>
               {/* Top-Right Icons */}
-              <Box sx={{
-                display: 'flex',
-                justifyContent: "space-between"
-              }}
-                
-              >
-                <Typography variant="body1" fontWeight="bold" mb={1} 
-                sx={{
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant="body1" fontWeight="bold" mb={1}
+                  sx={{
                     cursor: 'pointer',
                     textDecoration: 'none',
                     transition: 'text-decoration 0.2s',
                     color: mode === 'light' ? 'black' : 'white',
-                    '&:hover': {
-                      textDecoration: 'underline',
-                    },
+                    '&:hover': { textDecoration: 'underline' },
                   }}>
                   {projectData[selectedIndex].title}
                 </Typography>
-                <Box sx={{
-                  display: 'flex',
-                  justifyContent: 'flex-end',
-                  gap: 1,
-                  mb: 1,
-                }}>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1, mb: 1 }}>
                   <ChevronLeftIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handlePrev} />
                   <ChevronRightIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handleNext} />
-                  <CloseIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handleClose} />
+                  <CloseIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={() => setSelectedIndex(null)} />
                 </Box>
               </Box>
-
-            
-
-              <Box
-                component="img"
-                src={projectData[selectedIndex].picture}
-                alt={`project-${selectedIndex}`}
-                sx={{
-                  width: '100%',
-                  height: 250,
-                  objectFit: 'cover',
-                  borderRadius: '12px',
-                  mb: 2,
-                }}
-              />
-
-              <Typography variant="body2" color={mode === 'light' ? 'black' : 'white'} mb={2} sx={{ 
-                flexGrow: 1,
-                cursor: 'pointer',
-                textDecoration: 'none',
-                transition: 'text-decoration 0.2s',
-                '&:hover': {
-                  textDecoration: 'underline',
-                },
-              }}
-              >
+              <Box component="img" src={projectData[selectedIndex].picture} alt={`project-${selectedIndex}`} sx={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: '12px', mb: 2 }} />
+              <Typography variant="body2" color={mode === 'light' ? 'black' : 'white'} mb={2} sx={{ flexGrow: 1, cursor: 'pointer', textDecoration: 'none', transition: 'text-decoration 0.2s', '&:hover': { textDecoration: 'underline' } }}>
                 {projectData[selectedIndex].description}
               </Typography>
-
               <Box display="flex" flexWrap="wrap" gap={1}>
                 {projectData[selectedIndex].technologies.map((tech, i) => (
-                  <Box
-                    key={i}
-                    px={2}
-                    py={1}
-                    sx={{
-                      border: '1px solid #555',
-                      borderRadius: '20px',
-                      color: mode === 'light' ? '#555' : '#ddd',
-                      fontSize: '14px',
-                    }}
-                  >
+                  <Box key={i} px={2} py={1} sx={{ border: '1px solid #555', borderRadius: '20px', color: mode === 'light' ? '#555' : '#ddd', fontSize: '14px' }}>
                     {tech}
                   </Box>
                 ))}
               </Box>
             </Box>
           )}
-        </Box>
-      </Slide>
+        </Dialog>
+      ) : (
+        <Slide direction="left" in={selectedIndex !== null} mountOnEnter unmountOnExit>
+          <Box
+            sx={{
+              width: '35%',
+              minWidth: '300px',
+              maxWidth: '500px',
+              position: 'sticky',
+              top: '180px',
+              alignSelf: 'flex-start',
+              bgcolor: mode === 'light' ? 'white' : '#202124',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              py: 2,
+              px: 2,
+              height: 'auto',
+              maxHeight: '80vh',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.6)',
+              display: 'flex',
+              flexDirection: 'column',
+              zIndex: 10,
+            }}>
+            {selectedIndex !== null && (
+              <Box>
+                {/* Top-Right Icons */}
+                <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <Typography variant="body1" fontWeight="bold" mb={1}
+                    sx={{
+                      cursor: 'pointer',
+                      textDecoration: 'none',
+                      transition: 'text-decoration 0.2s',
+                      color: mode === 'light' ? 'black' : 'white',
+                      '&:hover': { textDecoration: 'underline' },
+                    }}>
+                    {projectData[selectedIndex].title}
+                  </Typography>
+                  <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1, mb: 1 }}>
+                    <ChevronLeftIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handlePrev} />
+                    <ChevronRightIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handleNext} />
+                    <CloseIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handleClose} />
+                  </Box>
+                </Box>
+                <Box component="img" src={projectData[selectedIndex].picture} alt={`project-${selectedIndex}`} sx={{ width: '100%', height: 250, objectFit: 'cover', borderRadius: '12px', mb: 2 }} />
+                <Typography variant="body2" color={mode === 'light' ? 'black' : 'white'} mb={2} sx={{ flexGrow: 1, cursor: 'pointer', textDecoration: 'none', transition: 'text-decoration 0.2s', '&:hover': { textDecoration: 'underline' } }}>
+                  {projectData[selectedIndex].description}
+                </Typography>
+                <Box display="flex" flexWrap="wrap" gap={1}>
+                  {projectData[selectedIndex].technologies.map((tech, i) => (
+                    <Box key={i} px={2} py={1} sx={{ border: '1px solid #555', borderRadius: '20px', color: mode === 'light' ? '#555' : '#ddd', fontSize: '14px' }}>
+                      {tech}
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
+            )}
+          </Box>
+        </Slide>
+      )}
     </Box>
   );
 };

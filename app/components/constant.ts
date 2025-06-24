@@ -156,7 +156,7 @@ export const projectData: IProjectDataDetails[] = [
 
 export const experiences = [
   {
-    company: "Apport SS Pvt Ltd",
+    company: "Apport Software Solutions Pvt Ltd",
     role: "Frontend Developer",
     date: "March 2025 - Present",
     description:

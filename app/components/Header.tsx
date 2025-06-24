@@ -41,26 +41,36 @@ export default function Header() {
         alignItems: 'center',
         py: 2,
       }}>
-        <Typography variant="h5" fontWeight="bold" sx={{ color: theme.palette.text.primary }}>
-          {isLight ? (
-            <>
-              <span style={{ color: '#4285F4' }}>A</span>
-              <span style={{ color: '#EA4335' }}>a</span>
-              <span style={{ color: '#FBBC05' }}>y</span>
-              <span style={{ color: '#4285F4' }}>o</span>
-              <span style={{ color: '#34A853' }}>o</span>
-              <span style={{ color: '#FBBC05' }}>g</span>
-              <span style={{ color: '#EA4335' }}>l</span>
-              <span style={{ color: '#4285F4' }}>e</span>
-            </>
-          ) : 'Aayoogle'}
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+            <Typography variant="h5" fontWeight="bold" sx={{ color: theme.palette.text.primary, ml: 4 }}>
+              {isLight ? (
+                <>
+                  <span style={{ color: '#4285F4' }}>A</span>
+                  <span style={{ color: '#EA4335' }}>a</span>
+                  <span style={{ color: '#FBBC05' }}>y</span>
+                  <span style={{ color: '#4285F4' }}>o</span>
+                  <span style={{ color: '#34A853' }}>o</span>
+                  <span style={{ color: '#FBBC05' }}>g</span>
+                  <span style={{ color: '#EA4335' }}>l</span>
+                  <span style={{ color: '#4285F4' }}>e</span>
+                </>
+              ) : 'Aayoogle'}
+            </Typography>
+          </Box>
+
+          <IconButton
+            onClick={toggleTheme}
+            sx={{ color: mode === 'light' ? 'black' : 'inherit' , mr: 2}}
+          >
+            {mode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
+          </IconButton>
+        </Box>
+
         <Box sx={{ width: '100%', px: 2 }}>
           <SearchBar mainPage={true}/>
         </Box>
-        <IconButton onClick={toggleTheme} sx={{ mt: 1, color: 'inherit', alignSelf: 'flex-end' }}>
-          {mode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
-        </IconButton>
+        
       </Box>
 
       {/* Desktop Layout */}
