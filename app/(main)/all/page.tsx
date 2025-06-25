@@ -244,7 +244,6 @@ export default function Home() {
         {/* Left Side - Projects & Experience */}
         <Box flex={5} order={{ xs: 2, md: 1 }}>
           <MainPageLink title='Projects' description="Look more into my projects and what I have built so far. Have fun looking into it. Adding sample texts here…" route='/projects'/>
-
           <div onClick={() => router.push('/projects')}>
             <Typography variant="h6" fontWeight={510} my={2} color={mode === 'light' ? 'black' : 'white'}>Projects</Typography>
             <Grid container spacing={2} mb={4}>
