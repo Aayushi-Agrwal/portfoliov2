@@ -18,9 +18,9 @@ const Projects = () => {
 
   const handleClose = () => setSelectedIndex(null);
   const handlePrev = () =>
-    setSelectedIndex((prev) => (prev !== null ? (prev - 1 + projectData.length) % projectData.length : null));
+    setSelectedIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : prev));
   const handleNext = () =>
-    setSelectedIndex((prev) => (prev !== null ? (prev + 1) % projectData.length : null));
+    setSelectedIndex((prev) => (prev !== null && prev < projectData.length - 1 ? prev + 1 : prev));
 
   return (
     <Box
@@ -148,8 +148,14 @@ const Projects = () => {
                   {projectData[selectedIndex].title}
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1, mb: 1 }}>
-                  <ChevronLeftIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handlePrev} />
-                  <ChevronRightIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handleNext} />
+                  <ChevronLeftIcon 
+                    sx={{ color: mode === 'light' ? 'black' : 'white', cursor: selectedIndex === 0 ? 'not-allowed' : 'pointer', opacity: selectedIndex === 0 ? 0.4 : 1 }} 
+                    onClick={selectedIndex === 0 ? undefined : handlePrev} 
+                  />
+                  <ChevronRightIcon 
+                    sx={{ color: mode === 'light' ? 'black' : 'white', cursor: selectedIndex === projectData.length - 1 ? 'not-allowed' : 'pointer', opacity: selectedIndex === projectData.length - 1 ? 0.4 : 1 }} 
+                    onClick={selectedIndex === projectData.length - 1 ? undefined : handleNext} 
+                  />
                   <CloseIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={() => setSelectedIndex(null)} />
                 </Box>
               </Box>
@@ -204,8 +210,14 @@ const Projects = () => {
                     {projectData[selectedIndex].title}
                   </Typography>
                   <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1, mb: 1 }}>
-                    <ChevronLeftIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handlePrev} />
-                    <ChevronRightIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handleNext} />
+                    <ChevronLeftIcon 
+                      sx={{ color: mode === 'light' ? 'black' : 'white', cursor: selectedIndex === 0 ? 'not-allowed' : 'pointer', opacity: selectedIndex === 0 ? 0.4 : 1 }} 
+                      onClick={selectedIndex === 0 ? undefined : handlePrev} 
+                    />
+                    <ChevronRightIcon 
+                      sx={{ color: mode === 'light' ? 'black' : 'white', cursor: selectedIndex === projectData.length - 1 ? 'not-allowed' : 'pointer', opacity: selectedIndex === projectData.length - 1 ? 0.4 : 1 }} 
+                      onClick={selectedIndex === projectData.length - 1 ? undefined : handleNext} 
+                    />
                     <CloseIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handleClose} />
                   </Box>
                 </Box>
