@@ -43,7 +43,7 @@ export default function Header() {
       }}>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <Typography variant="h5" fontWeight="bold" sx={{ color: theme.palette.text.primary, ml: 4 }}>
+            <Typography variant="h5" fontWeight="bold" sx={{ color: theme.palette.text.primary, ml: 4, cursor: 'pointer' }} onClick={() => router.push('/')}>
               {isLight ? (
                 <>
                   <span style={{ color: '#4285F4' }}>A</span>
@@ -80,7 +80,7 @@ export default function Header() {
         gap: '50px', 
         px: { xs: 5, lg: '40px' },
       }}>
-        <Typography variant="h5" fontWeight="bold" sx={{ color: theme.palette.text.primary }}>
+        <Typography variant="h5" fontWeight="bold" sx={{ color: theme.palette.text.primary, cursor: 'pointer' }} onClick={() => router.push('/')}>
           {isLight ? (
             <>
               <span style={{ color: '#4285F4' }}>A</span>

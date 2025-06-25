@@ -5,15 +5,15 @@ import { CenteredContainer } from "./components/CenteredContainer";
 import { SearchBar } from "./components/SearchBar";
 import { ActionButton } from "./components/ActionButton";
 import { useThemeMode } from "./components/ThemeContext";
-import { useTheme } from "@mui/material/styles";
 import IconButton from '@mui/material/IconButton';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const { mode, toggleTheme } = useThemeMode();
-  const theme = useTheme();
   const isLight = mode === 'light';
+  const router = useRouter()
 
   return (
     <CenteredContainer bgColor={isLight ? 'white' : '#202124'}>
@@ -22,7 +22,7 @@ export default function Home() {
           {isLight ? <DarkModeIcon /> : <LightModeIcon />}
         </IconButton>
       </Box>
-      <Typography variant="h2" fontWeight="bold" color={isLight ? 'inherit' : 'white'}>
+      <Typography variant="h2" fontWeight="bold" color={isLight ? 'inherit' : 'white'} onClick={() => router.push('/')} sx={{cursor: 'pointer'}}>
         {isLight ? (
           <>
             <span style={{ color: '#4285F4' }}>A</span>
