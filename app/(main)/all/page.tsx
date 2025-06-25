@@ -217,7 +217,7 @@ export default function Home() {
                 startIcon={<Download />}
                 fullWidth
                 component="a"
-                href="/resume.pdf"
+                href="/Resume.pdf"
                 download
                 sx={{
                   mt: 6,
