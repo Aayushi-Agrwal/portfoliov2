@@ -83,6 +83,14 @@ export const projectData: IProjectDataDetails[] = [
     technologies: [next, ts, tailwind]
   },
   {
+    title: 'OccasionOwl',
+    active: false,
+    description: 'Event planning assistant to keep track of invites, dates, and details — everything in one place.',
+    picture: '/projects/OccasionOwl.png',
+    url: 'https://occasion-owl-landing-page.vercel.app/',
+    technologies: [react, js, tailwind],
+  },
+  {
     title: 'Github Explorer',
     active: f,
     description:
@@ -143,14 +151,6 @@ export const projectData: IProjectDataDetails[] = [
     picture: '/projects/MindTasker.png',
     url: '', // Add URL if available
     technologies: [react, ts, tailwind],
-  },
-  {
-    title: 'OccasionOwl',
-    active: false,
-    description: 'Event planning assistant to keep track of invites, dates, and details — everything in one place.',
-    picture: '/projects/OccasionOwl.png',
-    url: '', // Add URL if available
-    technologies: [react, js, css],
   }
 ];
 

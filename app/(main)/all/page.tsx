@@ -216,6 +216,9 @@ export default function Home() {
                 color="primary"
                 startIcon={<Download />}
                 fullWidth
+                component="a"
+                href="/resume.pdf"
+                download
                 sx={{
                   mt: 6,
                   borderRadius: '8px',
