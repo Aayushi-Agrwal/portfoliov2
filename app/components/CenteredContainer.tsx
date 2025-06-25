@@ -9,6 +9,7 @@ export const CenteredContainer = ({ children, bgColor = "#1c1c1c"}: { children: 
     justifyContent="center"
     height="100vh"
     bgcolor={bgColor}
+    sx={{ px: { xs: 2, sm: 4, md: 0 } }}
   >
     {children}
   </Box>

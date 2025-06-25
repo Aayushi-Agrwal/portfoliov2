@@ -5,7 +5,6 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import { MouseEventHandler, useState, useRef, useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 import type { TouchEvent, MouseEvent } from 'react';
@@ -17,8 +16,6 @@ export default function ExperiencePage() {
   const theme = useTheme();
   const { mode } = useThemeMode();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [drawerPeek, setDrawerPeek] = useState(true);
 
   useEffect(() => {
     if (experienceRefs.current[experince]) {

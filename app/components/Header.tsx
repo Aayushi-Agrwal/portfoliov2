@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useTheme } from '@mui/material/styles';
+import { searchQuery } from './helper';
 
 const tabLabels = ["All", "Projects", "Experience", "About me"];
 const tabRoutes = ["/all", "/projects", "/experience", "/aboutMe"];
@@ -25,6 +26,15 @@ export default function Header() {
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     router.push(tabRoutes[newValue]);
+  };
+
+  // Add search handler
+  const handleSearch = (query: string) => {
+    const results = searchQuery(query);
+    if (results.length > 0 && results[0].type === 'navigate' && results[0].url) {
+      router.push(results[0].url);
+    }
+    // else: you can show results in a dropdown, etc.
   };
 
   return (
@@ -68,7 +78,7 @@ export default function Header() {
         </Box>
 
         <Box sx={{ width: '100%', px: 2 }}>
-          <SearchBar mainPage={true}/>
+          <SearchBar mainPage={true} onSearch={handleSearch}/>
         </Box>
         
       </Box>
@@ -94,7 +104,7 @@ export default function Header() {
             </>
           ) : 'Aayoogle'}
         </Typography>
-        <SearchBar mainPage={true}/>
+        <SearchBar mainPage={true} onSearch={handleSearch}/>
         <Box flex={1} />
         <IconButton onClick={toggleTheme} sx={{ color: mode === 'light' ? 'black' : 'inherit', ml: 2 }}>
           {mode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
