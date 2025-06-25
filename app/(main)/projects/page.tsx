@@ -9,6 +9,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useThemeMode } from '@/app/components/ThemeContext';
 import { useTheme } from '@mui/material/styles';
+import Link from 'next/link';
 
 const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -111,7 +112,7 @@ const Projects = () => {
               <Typography variant="body2" color="#838383">
                 {project.title}
               </Typography>
-              <Typography variant="body2" color={mode === 'light' ? 'black' : "#838383"}>
+              <Typography variant="body2" color={mode === 'light' ? 'black' : "white"}>
                 {truncateText(project.description, 50)}
               </Typography>
             </div>
@@ -137,16 +138,22 @@ const Projects = () => {
             <Box>
               {/* Top-Right Icons */}
               <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Typography variant="body1" fontWeight="bold" mb={1}
-                  sx={{
-                    cursor: 'pointer',
-                    textDecoration: 'none',
-                    transition: 'text-decoration 0.2s',
-                    color: mode === 'light' ? 'black' : 'white',
-                    '&:hover': { textDecoration: 'underline' },
-                  }}>
-                  {projectData[selectedIndex].title}
-                </Typography>
+                <Link
+                    href={projectData[selectedIndex].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none' }}>
+                      <Typography variant="body1" fontWeight="bold" mb={1}
+                        sx={{
+                          cursor: 'pointer',
+                          textDecoration: 'none',
+                          transition: 'text-decoration 0.2s',
+                          color: mode === 'light' ? 'black' : 'white',
+                          '&:hover': { textDecoration: 'underline' },
+                        }}>
+                        {projectData[selectedIndex].title}
+                      </Typography>
+                  </Link>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1, mb: 1 }}>
                   <ChevronLeftIcon 
                     sx={{ color: mode === 'light' ? 'black' : 'white', cursor: selectedIndex === 0 ? 'not-allowed' : 'pointer', opacity: selectedIndex === 0 ? 0.4 : 1 }} 
@@ -159,17 +166,23 @@ const Projects = () => {
                   <CloseIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={() => setSelectedIndex(null)} />
                 </Box>
               </Box>
-              <Box component="img" src={projectData[selectedIndex].picture} alt={`project-${selectedIndex}`} sx={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: '12px', mb: 2 }} />
-              <Typography variant="body2" color={mode === 'light' ? 'black' : 'white'} mb={2} sx={{ flexGrow: 1, cursor: 'pointer', textDecoration: 'none', transition: 'text-decoration 0.2s', '&:hover': { textDecoration: 'underline' } }}>
-                {projectData[selectedIndex].description}
-              </Typography>
-              <Box display="flex" flexWrap="wrap" gap={1}>
-                {projectData[selectedIndex].technologies.map((tech, i) => (
-                  <Box key={i} px={2} py={1} sx={{ border: '1px solid #555', borderRadius: '20px', color: mode === 'light' ? '#555' : '#ddd', fontSize: '14px' }}>
-                    {tech}
-                  </Box>
-                ))}
-              </Box>
+              <Link
+                href={projectData[selectedIndex].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none' }}>
+                <Box component="img" src={projectData[selectedIndex].picture} alt={`project-${selectedIndex}`} sx={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: '12px', mb: 2 }} />
+                <Typography variant="body2" color={mode === 'light' ? 'black' : 'white'} mb={2} sx={{ flexGrow: 1, cursor: 'pointer', textDecoration: 'none', transition: 'text-decoration 0.2s', '&:hover': { textDecoration: 'underline' } }}>
+                  {projectData[selectedIndex].description}
+                </Typography>
+                <Box display="flex" flexWrap="wrap" gap={1}>
+                  {projectData[selectedIndex].technologies.map((tech, i) => (
+                    <Box key={i} px={2} py={1} sx={{ border: '1px solid #555', borderRadius: '20px', color: mode === 'light' ? '#555' : '#ddd', fontSize: '14px' }}>
+                      {tech}
+                    </Box>
+                  ))}
+                </Box>
+              </Link>
             </Box>
           )}
         </Dialog>
@@ -199,16 +212,22 @@ const Projects = () => {
               <Box>
                 {/* Top-Right Icons */}
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <Typography variant="body1" fontWeight="bold" mb={1}
-                    sx={{
-                      cursor: 'pointer',
-                      textDecoration: 'none',
-                      transition: 'text-decoration 0.2s',
-                      color: mode === 'light' ? 'black' : 'white',
-                      '&:hover': { textDecoration: 'underline' },
-                    }}>
-                    {projectData[selectedIndex].title}
-                  </Typography>
+                <Link
+                  href={projectData[selectedIndex].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none' }}>
+                    <Typography variant="body1" fontWeight="bold" mb={1}
+                      sx={{
+                        cursor: 'pointer',
+                        textDecoration: 'none',
+                        transition: 'text-decoration 0.2s',
+                        color: mode === 'light' ? 'black' : 'white',
+                        '&:hover': { textDecoration: 'underline' },
+                      }}>
+                      {projectData[selectedIndex].title}
+                    </Typography>
+                  </Link>
                   <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1, mb: 1 }}>
                     <ChevronLeftIcon 
                       sx={{ color: mode === 'light' ? 'black' : 'white', cursor: selectedIndex === 0 ? 'not-allowed' : 'pointer', opacity: selectedIndex === 0 ? 0.4 : 1 }} 
@@ -221,17 +240,23 @@ const Projects = () => {
                     <CloseIcon sx={{ color: mode === 'light' ? 'black' : 'white', cursor: 'pointer' }} onClick={handleClose} />
                   </Box>
                 </Box>
-                <Box component="img" src={projectData[selectedIndex].picture} alt={`project-${selectedIndex}`} sx={{ width: '100%', height: 250, objectFit: 'cover', borderRadius: '12px', mb: 2 }} />
-                <Typography variant="body2" color={mode === 'light' ? 'black' : 'white'} mb={2} sx={{ flexGrow: 1, cursor: 'pointer', textDecoration: 'none', transition: 'text-decoration 0.2s', '&:hover': { textDecoration: 'underline' } }}>
-                  {projectData[selectedIndex].description}
-                </Typography>
-                <Box display="flex" flexWrap="wrap" gap={1}>
-                  {projectData[selectedIndex].technologies.map((tech, i) => (
-                    <Box key={i} px={2} py={1} sx={{ border: '1px solid #555', borderRadius: '20px', color: mode === 'light' ? '#555' : '#ddd', fontSize: '14px' }}>
-                      {tech}
-                    </Box>
-                  ))}
-                </Box>
+                <Link
+                  href={projectData[selectedIndex].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none' }}>
+                  <Box component="img" src={projectData[selectedIndex].picture} alt={`project-${selectedIndex}`} sx={{ width: '100%', height: 250, objectFit: 'cover', borderRadius: '12px', mb: 2 }} />
+                  <Typography variant="body2" color={mode === 'light' ? 'black' : 'white'} mb={2} sx={{ flexGrow: 1, cursor: 'pointer', textDecoration: 'none', transition: 'text-decoration 0.2s', '&:hover': { textDecoration: 'underline' } }}>
+                    {projectData[selectedIndex].description}
+                  </Typography>
+                  <Box display="flex" flexWrap="wrap" gap={1}>
+                    {projectData[selectedIndex].technologies.map((tech, i) => (
+                      <Box key={i} px={2} py={1} sx={{ border: '1px solid #555', borderRadius: '20px', color: mode === 'light' ? '#555' : '#ddd', fontSize: '14px' }}>
+                        {tech}
+                      </Box>
+                    ))}
+                  </Box>
+                </Link>
               </Box>
             )}
           </Box>

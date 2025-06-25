@@ -54,8 +54,8 @@ export default function Home() {
       <Box display="flex" flexWrap="wrap" justifyContent="center">
         <ActionButton href="/experience">Experience</ActionButton>
         <ActionButton href="/projects">Projects</ActionButton>
-        <ActionButton href="/aboutMe">About me</ActionButton>
-        <ActionButton >I'm Feeling Lucky</ActionButton>
+        {/* <ActionButton href="/aboutMe">About me</ActionButton> */}
+        {/* <ActionButton >I'm Feeling Lucky</ActionButton> */}
       </Box>
     </CenteredContainer>
   );

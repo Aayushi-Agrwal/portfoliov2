@@ -23,7 +23,7 @@ export function truncateText(text: string, maxLength: number) {
     // Navigation keywords
     const navKeywords = [
       { keywords: ["experience", "experiences"], url: "/experience" },
-      { keywords: ["about", "about me"], url: "/aboutMe" },
+      // { keywords: ["about", "about me"], url: "/aboutMe" },
       { keywords: ["project", "projects"], url: "/projects" },
     ];
     for (const nav of navKeywords) {

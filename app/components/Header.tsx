@@ -10,7 +10,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useTheme } from '@mui/material/styles';
 import { searchQuery } from './helper';
 
-const tabLabels = ["All", "Projects", "Experience", "About me"];
+const tabLabels = ["All", "Projects", "Experience"];
 const tabRoutes = ["/all", "/projects", "/experience", "/aboutMe"];
 
 export default function Header() {

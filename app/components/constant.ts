@@ -44,7 +44,7 @@ export const projectData: IProjectDataDetails[] = [
     active: f,
     description: 'My previous personal portfolio showcasing selected work, built with a Google-inspired UI using Next.js and MUI.',
     picture: '/projects/portfolio-screenshot.png',
-    url: '', // Add your URL if deployed
+    url: 'https://aayushi-portfolio.vercel.app/',
     technologies: [next, ts, 'Material UI', figma],
   },
   {
@@ -71,7 +71,7 @@ export const projectData: IProjectDataDetails[] = [
     description:
       'Developed a testimonial page featuring live project previews and implemented seamless transitions for enhanced user experience.',
     picture: '/projects/neurastats.png',
-    url: 'https://neurastats.com/home/',
+    url: 'https://neurastats.com/',
     technologies: [react, js, scss]
   },
   {
@@ -97,7 +97,7 @@ export const projectData: IProjectDataDetails[] = [
     description:
       'A dynamic and engaging Blog Website using cutting-edge technologies such as Next.js, TypeScript, and the Strapi Content Management System (CMS)',
     picture: '/projects/blog.png',
-    url: '',
+    url: 'https://neurastats.com/',
     technologies: [next, ts, tailwind, 'Stapi CMS']
   },
   {

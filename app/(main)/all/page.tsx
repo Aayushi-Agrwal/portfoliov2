@@ -10,19 +10,23 @@ import { projects } from "@/app/components/constant";
 import { useRouter } from "next/navigation";
 import { useThemeMode } from "@/app/components/ThemeContext";
 import { useTheme } from '@mui/material/styles';
+import Link from "next/link";
 
 const profiles = [
   {
     name: "LinkedIn",
-    icon: <LinkedIn />
+    icon: <LinkedIn />,
+    url: 'https://www.linkedin.com/in/aayushi-agarwal-bb104222b/'
   },
   {
     name: "Github",
-    icon: <GitHub />
+    icon: <GitHub />,
+    url: 'https://github.com/Aayushi-Agrwal/',
   },
   {
     name: "Gmail",
-    icon: <Email />
+    icon: <Email />,
+    url: 'aayushiagrwall@gmail.com'
   }
 ]
 
@@ -95,26 +99,34 @@ export default function Home() {
                 '&::-webkit-scrollbar': { display: 'none' },
               }}>
                 {profiles.map((profile, index) => (
-                  <Box 
+                  <Link
                     key={index}
-                    className="flex justify-center items-center border border-solid border-[#979DA3] px-4 py-1 rounded-4xl cursor-pointer transition-all duration-300 group"
-                    sx={{
-                      '&:hover .text-content': {
-                        opacity: 0,
-                      },
-                      '&:hover .icon-content': {
-                        opacity: 1,
-                      }
-                    }}
+                    href={profile.url.startsWith('mailto') || profile.url.includes('@') ? `mailto:${profile.url}` : profile.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none' }}
                   >
-                    <span className="text-content transition-opacity duration-100">{profile.name}</span>
                     <Box 
-                      className="icon-content absolute opacity-0 transition-opacity duration-300" 
-                      sx={{ color: mode === 'light' ? 'black' : 'white' }}
+                      key={index}
+                      className="flex justify-center items-center border border-solid border-[#979DA3] px-4 py-1 rounded-4xl cursor-pointer transition-all duration-300 group"
+                      sx={{
+                        '&:hover .text-content': {
+                          opacity: 0,
+                        },
+                        '&:hover .icon-content': {
+                          opacity: 1,
+                        }
+                      }}
                     >
-                      {profile.icon}
+                      <span className="text-content transition-opacity duration-100">{profile.name}</span>
+                      <Box 
+                        className="icon-content absolute opacity-0 transition-opacity duration-300" 
+                        sx={{ color: mode === 'light' ? 'black' : 'white' }}
+                      >
+                        {profile.icon}
+                      </Box>
                     </Box>
-                  </Box>
+                  </Link>
                 ))}
               </Box>
 
@@ -154,19 +166,30 @@ export default function Home() {
 
               <Box mt={4}>
                 <Typography fontWeight="bold">Education</Typography>
-                <Box display="flex" alignItems="center" gap={2} mt={1}>
-                  <Image 
-                    src="/education-icon.jpg" 
-                    alt="Education" 
-                    width={60} 
-                    height={60} 
-                  />
-                  <Typography variant="body2">
-                    <span className="font-bold">IIT Roorkee<br /></span>
-                    Bachelor of Technology<br />
-                    <span className="text-[#4285F4]">2021 - 2025</span>
-                  </Typography>
-                </Box>
+                <Link
+                  href='https://www.iitr.ac.in/'
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none' }}>
+                  <Box display="flex" alignItems="center" gap={2} mt={1}>
+                    <Image 
+                      src="/education-icon.jpg" 
+                      alt="Education" 
+                      width={60} 
+                      height={60} 
+                    />
+                    <Typography variant="body2" sx={{textDecoration: 'none',
+                      transition: 'text-decoration 0.2s',
+                      cursor: 'pointer',
+                      '&:hover': {
+                        textDecoration: 'underline',
+                      }}}>
+                      <span className="font-bold">IIT Roorkee<br /></span>
+                      Bachelor of Technology<br />
+                      <span className="text-[#4285F4]">2021 - 2025</span>
+                    </Typography>
+                  </Box>
+                </Link> 
               </Box>
 
               <Box mt={4}>
@@ -276,7 +299,7 @@ export default function Home() {
           )}
 
           <MainPageLink title='Experience' description="Look more into my experience. Have fun looking into it. Adding sample texts here…" route='/experience'/>
-          <MainPageLink title='About me' description="Know more about me. Have fun looking into it. Adding sample texts here…" route='/aboutMe'/>
+          {/* <MainPageLink title='About me' description="Know more about me. Have fun looking into it. Adding sample texts here…" route='/aboutMe'/> */}
         </Box>
       </Box>
       <Snackbar
