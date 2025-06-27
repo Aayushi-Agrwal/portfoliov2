@@ -1,33 +1,33 @@
-Aayushi Agarwal – Personal Portfolio
+# Aayushi Agarwal – Personal Portfolio
 
 This is my personal portfolio website, designed with a **Google Search-inspired UI**. It's minimal, fast, and clean — built to highlight my projects, skills, and experience in a familiar and intuitive layout.
 
-## ✨ Features
+## Features
 
-* 🔍 **Landing Page Inspired by Google Search**
+* **Landing Page Inspired by Google Search**
 
   * Clean, centered search bar with subtle animation
 
-* 🗂️ **Projects Explorer**
+* **Projects Explorer**
 
   * Project cards
   * Highlighted featured projects with smooth hover/expand UI
   * Tech stack tags and live links
 
-* 🕒 **Experience Timeline**
+* **Experience Timeline**
 
   * Chronological, map-style layout using spatial coordinates
   * Context-rich entries
 
-* 🧠 **Tech Stack Showcase**
+* **Tech Stack Showcase**
 
   * Technologies I frequently use (React, TypeScript, Next.js, Tailwind, MUI, etc.)
 
-* 🎨 **Dark Mode Ready**
+* **Dark Mode Ready**
 
   * Fully themed using Material UI and Emotion
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Frontend:** React, Next.js (App Router)
 * **Styling:** Emotion, Material UI (MUI)
@@ -35,7 +35,7 @@ This is my personal portfolio website, designed with a **Google Search-inspired 
 * **Animations:** Framer Motion
 * **Build & Deploy:** Vercel
 
-## 🚀 Getting Started
+## Getting Started
 
 Clone the repository and run locally:
 
@@ -48,13 +48,13 @@ npm run dev
 
 Visit `http://localhost:3000` to view the app.
 
-## 📦 Deploy
+## Deploy
 
 This portfolio is deployed on **Vercel**. You can fork and deploy it in seconds:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
-## 📸 Preview
+## Preview
 
 ![Landing Page Screenshot](./public/screenshots/landing.png)
 *A minimalist, Google-style entry screen*
@@ -65,12 +65,12 @@ This portfolio is deployed on **Vercel**. You can fork and deploy it in seconds:
 ![Experience Map Screenshot](./public/screenshots/experience.png)
 *Map based Expereince section*
 
-## 🧑‍💻 About Me
+## About Me
 
-Hi! I’m **Aayushi Agarwal**, a front-end developer passionate about building elegant UIs, meaningful web experiences, and fun side projects. You can learn more about me and my work [on the website]([https://yourdomain.com](https://portfoliov2-pi-five.vercel.app/)).
+Hi! I’m **Aayushi Agarwal**, a front-end developer passionate about building elegant UIs, meaningful web experiences, and fun side projects. You can learn more about me and my work [on the website](https://portfoliov2-pi-five.vercel.app/projects).
 
-## 📫 Contact
+## Contact
 
-* LinkedIn: [linkedin.com/in/aayushi-agarwal](https://www.linkedin.com/in/aayushi-agarwal-bb104222b/)
-* GitHub: [github.com/aayushi-agarwal](https://github.com//aayushi-agrwal)
-* Email: [you@example.com](mailto:aayushiagrwall@gmail.com)
+* LinkedIn: [linkedin.com/in/aayushi-agarwal-bb104222b](https://www.linkedin.com/in/aayushi-agarwal-bb104222b/)
+* GitHub: [github.com/aayushi-agrwal](https://github.com//aayushi-agrwal)
+* Email: [aayushiagrwall@gmail.com](mailto:aayushiagrwall@gmail.com)
