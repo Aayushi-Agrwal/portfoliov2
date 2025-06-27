@@ -1,37 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Aayushi Agarwal – Personal Portfolio
 
-## Getting Started
+This is my personal portfolio website, designed with a **Google Search-inspired UI**. It's minimal, fast, and clean — built to highlight my projects, skills, and experience in a familiar and intuitive layout.
 
-First, run the development server:
+## ✨ Features
+
+* 🔍 **Landing Page Inspired by Google Search**
+
+  * Clean, centered search bar with subtle animation
+
+* 🗂️ **Projects Explorer**
+
+  * Project cards
+  * Highlighted featured projects with smooth hover/expand UI
+  * Tech stack tags and live links
+
+* 🕒 **Experience Timeline**
+
+  * Chronological, map-style layout using spatial coordinates
+  * Context-rich entries
+
+* 🧠 **Tech Stack Showcase**
+
+  * Technologies I frequently use (React, TypeScript, Next.js, Tailwind, MUI, etc.)
+
+* 🎨 **Dark Mode Ready**
+
+  * Fully themed using Material UI and Emotion
+
+## 🛠️ Tech Stack
+
+* **Frontend:** React, Next.js (App Router)
+* **Styling:** Emotion, Material UI (MUI)
+* **State Management:** React Hooks
+* **Animations:** Framer Motion
+* **Build & Deploy:** Vercel
+
+## 🚀 Getting Started
+
+Clone the repository and run locally:
 
 ```bash
+git clone https://github.com/yourusername/portfolio-google-ui.git
+cd portfolio-google-ui
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This portfolio is deployed on **Vercel**. You can fork and deploy it in seconds:
 
-## Learn More
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
-To learn more about Next.js, take a look at the following resources:
+## 📸 Preview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Landing Page Screenshot](./public/screenshots/landing.png)
+*A minimalist, Google-style entry screen*
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![Project Grid Screenshot](./public/screenshots/projects.png)
+*Interactive project showcase*
 
-## Deploy on Vercel
+![Experience Map Screenshot](./public/screenshots/experience.png)
+*Map based Expereince section*
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧑‍💻 About Me
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# portfoliov2
+Hi! I’m **Aayushi Agarwal**, a front-end developer passionate about building elegant UIs, meaningful web experiences, and fun side projects. You can learn more about me and my work [on the website]([https://yourdomain.com](https://portfoliov2-pi-five.vercel.app/)).
+
+## 📫 Contact
+
+* LinkedIn: [linkedin.com/in/aayushi-agarwal](https://www.linkedin.com/in/aayushi-agarwal-bb104222b/)
+* GitHub: [github.com/aayushi-agarwal](https://github.com//aayushi-agrwal)
+* Email: [you@example.com](mailto:aayushiagrwall@gmail.com)
