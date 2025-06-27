@@ -67,7 +67,7 @@ This portfolio is deployed on **Vercel**. You can fork and deploy it in seconds:
 
 ## About Me
 
-Hi! I’m **Aayushi Agarwal**, a front-end developer passionate about building elegant UIs, meaningful web experiences, and fun side projects. You can learn more about me and my work [on the website](https://portfoliov2-pi-five.vercel.app/projects).
+Hi! I’m **Aayushi Agarwal**, a front-end developer passionate about building elegant UIs, meaningful web experiences, and fun side projects. You can learn more about me and my work [on the website](https://portfoliov2-pi-five.vercel.app/).
 
 ## Contact
 
